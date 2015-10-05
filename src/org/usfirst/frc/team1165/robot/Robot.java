@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 import org.usfirst.frc.team1165.robot.commands.ReportAccel;
 import org.usfirst.frc.team1165.robot.subsystems.Accel;
+import org.usfirst.frc.team1165.robot.subsystems.Cam;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -19,6 +20,7 @@ import org.usfirst.frc.team1165.robot.subsystems.Accel;
 public class Robot extends IterativeRobot {
 
 	public static final Accel accelerometer = new Accel();
+	public static final Cam camera = new Cam();
 	public static OI oi;
 
     Command autonomousCommand;

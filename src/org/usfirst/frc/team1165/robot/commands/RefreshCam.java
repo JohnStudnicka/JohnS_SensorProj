@@ -3,28 +3,24 @@ package org.usfirst.frc.team1165.robot.commands;
 import org.usfirst.frc.team1165.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
-public class ReportAccel extends Command {
+public class RefreshCam extends Command {
 
-    public ReportAccel() {
-    	requires(Robot.accelerometer);
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+    public RefreshCam() {
+        requires(Robot.camera);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.camera.init();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	SmartDashboard.putNumber("X-Axis Acceleration:", Robot.accelerometer.valueX());
-    	SmartDashboard.putNumber("Y-Axis Acceleration:", Robot.accelerometer.valueY());
-    	SmartDashboard.putNumber("Z-Axis Acceleration:", Robot.accelerometer.valueZ());
+    	Robot.camera.refresh();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -34,10 +30,12 @@ public class ReportAccel extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.camera.end();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	end();
     }
 }

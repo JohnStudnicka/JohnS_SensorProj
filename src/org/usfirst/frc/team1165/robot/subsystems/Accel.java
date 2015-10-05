@@ -20,9 +20,19 @@ public class Accel extends Subsystem {
         setDefaultCommand(new ReportAccel());
     }
     
-    public double value()
+    public double valueX()
+    {
+    	return accel.getX();
+    }
+    
+    public double valueY()
     {
     	return accel.getY();
+    }
+    
+    public double valueZ()
+    {
+    	return accel.getZ();
     }
 }
 
